@@ -7,4 +7,6 @@ function insertShiftArray(arr,num){
    return arr
    }
 
+
+   module.exports=insertShiftArray;
    
