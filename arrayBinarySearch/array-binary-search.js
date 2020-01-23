@@ -20,3 +20,7 @@ function binarySearch(arr, num) {
     }
     return j
 }
+
+
+
+module.exports=binarySearch;
