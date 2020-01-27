@@ -1,6 +1,6 @@
 'use strict';
 
-const {LinkedList,Node,} = require('./linkedlist.js');
+const {LinkedList,Node,} = require('../linkedlist/linkedlist.js');
 
 class ll extends LinkedList {
   constructor(){
@@ -11,7 +11,7 @@ class ll extends LinkedList {
     let node = new Node(value);
 
     // { value: 5, next: null }
-    
+
     if (!this.head) {
       this.head = node;
       return this;
@@ -62,7 +62,6 @@ class ll extends LinkedList {
 
 
 }
-let ls = new ll;
 
 
 
