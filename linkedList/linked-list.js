@@ -1,12 +1,12 @@
-'use strict';
+
 
 class Node {
-    constructor(value) {
-      this.value = value;
-      this.next = null;
-    }
-
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
+
+}
 
 class LinkedList {
   constructor() {
@@ -22,10 +22,10 @@ class LinkedList {
       this.head = node;
       return this;
     }
-    
+
     let currentNode = this.head;
     while(currentNode.next) {
-      currentNode = currentNode.next
+      currentNode = currentNode.next;
     }
 
     currentNode.next = node;
@@ -34,30 +34,30 @@ class LinkedList {
 
   include(val){
 
-    let current=this.head;
+    let current = this.head;
     while(current){
-        if(current.value===val){
-            return true;
-        }
-        current=current.next;
+      if(current.value === val){
+        return true;
+      }
+      current = current.next;
     }
     return false;
   }
 
-  printList() 
-{ 
-    let current = this.head; 
-    let str = "{"; 
-    while (current) { 
-        str += current.value + "} -> {"; 
-        current = current.next; 
-    } 
-    str += " NULL }"; 
-    // console.log(str); 
+  printList()
+  {
+    let current = this.head;
+    let str = '{';
+    while (current) {
+      str += current.value + '} -> {';
+      current = current.next;
+    }
+    str += ' NULL }';
+    // console.log(str);
     return str;
-} 
+  }
 }
-let ll= new LinkedList();
+let ll = new LinkedList();
 console.log('insert(5) : ',ll.insert(5));
 // console.log('insert(5) : ',ll.insert(10));
 // console.log('insert(5) : ',ll.insert(15));
