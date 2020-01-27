@@ -1,4 +1,3 @@
-'use strict';
 
 const {LinkedList} = require('../linkedList/linkedList.js');
 
