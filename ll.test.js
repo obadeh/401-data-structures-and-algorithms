@@ -32,12 +32,6 @@ describe('Linked List Module append(), insertBefore(), insertAfter()', () => {
     expect(list.head.next.value).toEqual(10)
 
   })
-//   it('Can successfully insert a node before the first node of a linked list',()=>{
-//     let list = new Linked();
-//     list.insert('test 1');
-//     list.insert('test 2');
-//     expect(list.head.next.value).toMatch('test 2')
-//   })
 
   it('Can successfully insert after a node in the middle of the linked list',()=>{
     let list = new LinkedList();
@@ -59,9 +53,6 @@ describe('Linked List Module append(), insertBefore(), insertAfter()', () => {
 
 
 })
-
-
-
 
 
 
@@ -125,4 +116,58 @@ describe('Linked List Module insert() include()', () => {
   })
 
 
+})
+
+
+describe('Test the ll.kthFromEnd(k) methode with linkedList:',()=>{
+  it('Where k is greater than the length of the linked list',()=>{
+      let linkedList= new LinkedList;
+
+      linkedList.insert(1);
+      linkedList.insert(2);
+      linkedList.insert(3);
+      linkedList.insert(4);
+
+      expect(linkedList.kthFromEnd(5)).toBeFalsy()
+  })
+
+  it('Where k and the length of the list are the same',()=>{
+      let linkedList= new LinkedList;
+
+      linkedList.insert(1);
+      linkedList.insert(2);
+      linkedList.insert(3);
+      linkedList.insert(4);
+      let llLength=3;
+      expect(linkedList.kthFromEnd(llLength)).toEqual(linkedList.head.value)
+  })
+  
+  it('Where k is not a positive integer',()=>{
+      let linkedList= new LinkedList;
+
+      linkedList.insert(1);
+      linkedList.insert(2);
+      linkedList.insert(3);
+      linkedList.insert(4);
+
+      expect(linkedList.kthFromEnd(-4)).toBeFalsy()
+  })
+
+  it('Where the linked list is of a size 1',()=>{
+      let linkedList= new LinkedList;
+
+      linkedList.insert(1);
+
+      expect(linkedList.kthFromEnd(0)).toEqual(linkedList.head.value)
+  })
+  it('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list',()=>{
+      let linkedList= new LinkedList;
+
+      linkedList.insert(1);
+      linkedList.insert(2);
+      linkedList.insert(3);
+      linkedList.insert(4);
+
+      expect(linkedList.kthFromEnd(2)).toEqual(2)
+  })
 })

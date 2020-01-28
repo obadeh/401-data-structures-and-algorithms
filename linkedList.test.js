@@ -1,54 +1,52 @@
-const Linkedlist=require('./linkedList/ll-kth-from-end.js');
+const {Featur:Linkedlist,  mergeLists}=require('./linkedList/ll-merge.js');
+describe('Test the ll.merge methode with linkedList:',()=>{
+    it('Where the length of the first linked list is greater than length of the second linked list',()=>{
+        let firstLinkedList= new Linkedlist;
+        let secondLinkedList= new Linkedlist;
 
-describe('Test the ll.kthFromEnd(k) methode with linkedList:',()=>{
-    it('Where k is greater than the length of the linked list',()=>{
-        let linkedList= new Linkedlist;
+        firstLinkedList.insert(1);
+        firstLinkedList.insert(2);
+        firstLinkedList.insert(3);
+       
+        secondLinkedList.insert(4);
+        secondLinkedList.insert(5);
 
-        linkedList.insert(1);
-        linkedList.insert(2);
-        linkedList.insert(3);
-        linkedList.insert(4);
-
-        expect(linkedList.kthFromEnd(5)).toBeFalsy()
+        expect((mergeLists(firstLinkedList,secondLinkedList)).head.value).toEqual(1)
+        expect((mergeLists(firstLinkedList,secondLinkedList)).kthFromEnd(0)).toEqual(3)
     })
 
-    it('Where k and the length of the list are the same',()=>{
-        let linkedList= new Linkedlist;
+    it('Where the length of the second linked list is greater than length of the first linked list',()=>{
+        let firstLinkedList= new Linkedlist;
+        let secondLinkedList= new Linkedlist;
 
-        linkedList.insert(1);
-        linkedList.insert(2);
-        linkedList.insert(3);
-        linkedList.insert(4);
-        let llLength=3;
-        expect(linkedList.kthFromEnd(llLength)).toEqual(linkedList.head.value)
+        firstLinkedList.insert(1);
+        firstLinkedList.insert(2);
+       
+        secondLinkedList.insert(4);
+        secondLinkedList.insert(5);
+        secondLinkedList.insert(6);
+
+        expect((mergeLists(firstLinkedList,secondLinkedList)).head.value).toEqual(1)
+        expect((mergeLists(firstLinkedList,secondLinkedList)).kthFromEnd(0)).toEqual(6)
+    
     })
     
-    it('Where k is not a positive integer',()=>{
-        let linkedList= new Linkedlist;
+    it('Where the length of the first linked list is equal the length of the second linked list',()=>{
+        let firstLinkedList= new Linkedlist;
+        let secondLinkedList= new Linkedlist;
 
-        linkedList.insert(1);
-        linkedList.insert(2);
-        linkedList.insert(3);
-        linkedList.insert(4);
+        firstLinkedList.insert(1);
+        firstLinkedList.insert(2);
+        firstLinkedList.insert(3);
+       
+        secondLinkedList.insert(4);
+        secondLinkedList.insert(5);
+        secondLinkedList.insert(6);
 
-        expect(linkedList.kthFromEnd(-4)).toBeFalsy()
+        expect((mergeLists(firstLinkedList,secondLinkedList)).head.value).toEqual(1)
+        expect((mergeLists(firstLinkedList,secondLinkedList)).kthFromEnd(1)).toEqual(3)
+        expect((mergeLists(firstLinkedList,secondLinkedList)).kthFromEnd(0)).toEqual(6)
+    
     })
-
-    it('Where the linked list is of a size 1',()=>{
-        let linkedList= new Linkedlist;
-
-        linkedList.insert(1);
-
-        expect(linkedList.kthFromEnd(0)).toEqual(linkedList.head.value)
-    })
-    it('“Happy Path” where k is not at the end, but somewhere in the middle of the linked list',()=>{
-        let linkedList= new Linkedlist;
-
-        linkedList.insert(1);
-        linkedList.insert(2);
-        linkedList.insert(3);
-        linkedList.insert(4);
-
-        expect(linkedList.kthFromEnd(2)).toEqual(2)
-    })
+    
 })
