@@ -1,12 +1,20 @@
-# 401-data-structures-and-algorithms
+# Challenge Summary
 
-# Singly Linked List
-creat methods to deal with linked list
+## ll-insertions
 
-## Challenge
+Write methods for the Linked List class.
 
-creat methods: append(), insertBefore(), insertAfter() .
+## Challenge Description
+
+* create .append(value) method, which adds a new node with the given value to the end of the list.
+* create .insertBefore(value, newVal) methods, which add a new node with the given newValue immediately before the first    value node.
+
+* create.insertAfter(value, newVal) method, which add a new node with the given newValue immediately after the first        value node
 
 ## Approach & Efficiency
-it taked 2 hours 
 
+1 hour.
+
+## Solution
+
+![whiteBord](./code.png)
