@@ -1,6 +1,6 @@
-'use strict';
 
-const {LinkedList,Node,} = require('../linkedlist/linkedlist.js');
+
+const {LinkedList,Node} = require('../linkedlist/linkedlist.js');
 
 class ll extends LinkedList {
   constructor(){
