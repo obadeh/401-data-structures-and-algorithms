@@ -13,7 +13,9 @@ class Stack{
 
     push(value){
         let node= new Node(value)
-        this.top=node;
+        // node{value:4 next:null }
+        node.next = this.top;
+        this.top = node;
     }
 
     pop(){
@@ -29,8 +31,52 @@ class Stack{
         return true;
     }
 }
+class Queue{
+    constructor(){
+        this.front=null;
+        this.tail=null;
+    }
+
+    enqueue(value){
+        let node=new Node(value);
+        if(!this.front){this.front=node;this.tail=node}
+        this.tail.next=node;
+        this.tail=node;
+    }
+
+    dequeue(){
+        let node;
+        if (this.front) {
+          node = this.front.value;
+          this.front = this.front.next;
+        }
+        return node;
+    }
+
+    peek(){
+        if(this.front){return this.front.value}
+        if(!this.front){return this.front}
+    }
+
+    isEmpty(){
+        if(this.front){return false}
+        return true;
+    }
+}
+
+
+
 
 let a= new Stack
 a.push(5)
+a.push(6)
 a.pop()
-console.log('a : ', a.isEmpty());
+
+
+let b=new Queue
+b.enqueue(1)
+b.enqueue(2)
+// b.enqueue(3)
+console.log('b.dequeue() : ', b.dequeue()); 
+
+console.log('b : ', b);
