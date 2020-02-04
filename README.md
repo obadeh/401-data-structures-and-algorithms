@@ -2,14 +2,16 @@
 
 # Challenge Summary
 
-Create a class called AnimalShelter which holds only dogs and cats.
+ function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. 
 
 ## Challenge Description
 
-The shelter operates using a first-in, first-out approach.
-Implement the following methods:
-enqueue(animal): adds animal to the shelter. animal can be either a dog or a cat object.
-dequeue(pref): returns either a dog or a cat. If pref is not "dog" or "cat" then return null.
+here are 3 types of brackets:
+
+Round Brackets : () ==> true
+Square Brackets : [] ==> true
+Curly Brackets : {} ==> true
+
 
 ## Approach & Efficiency
 it taked 2 hours 
