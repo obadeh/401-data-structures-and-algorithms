@@ -1,6 +1,6 @@
-'use strict';
 
-const validator= require('../multiBracketValidation/multi-bracket-validation.js')
+
+const validator = require('../multiBracketValidation/multi-bracket-validation.js');
 
 describe('test the multi bracket validation function', () => {
   test('check for balance brackets strings that should return true', () => {

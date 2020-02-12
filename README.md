@@ -12,6 +12,10 @@ Round Brackets : () ==> true
 Square Brackets : [] ==> true
 Curly Brackets : {} ==> true
 
+big O:
+
+time --> O(n)
+space --> O(1)
 
 ## Approach & Efficiency
 it taked 2 hours 
