@@ -1,4 +1,4 @@
-const PseudoQueue = require('../queueWithStacks/queue-with-stacks')
+const PseudoQueue = require('../queueWithStacks/queue-with-stacks');
 
 const queue = new PseudoQueue();
 
