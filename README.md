@@ -20,4 +20,4 @@ it taked 2 hours
 
 ## Solution
 
-![whbord]()
+![whbord](./bt.jpg)

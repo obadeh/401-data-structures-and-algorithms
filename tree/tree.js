@@ -1,4 +1,4 @@
-"use strict";
+
 
 class Node {
   constructor(value, left = null, right = null) {
@@ -23,7 +23,7 @@ class BinaryTree {
       results.push(node.value);
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
-    }
+    };
     _walk(this.root);
     return results;
   }
@@ -35,7 +35,7 @@ class BinaryTree {
       if (node.left) _walk(node.left);
       results.push(node.value);
       if (node.right) _walk(node.right);
-    }
+    };
     _walk(this.root);
     return results;
   }
@@ -47,7 +47,7 @@ class BinaryTree {
       if (node.left) _walk(node.left);
       if (node.right) _walk(node.right);
       results.push(node.value);
-    }
+    };
     _walk(this.root);
     return results;
   }
@@ -55,61 +55,67 @@ class BinaryTree {
 
 class BinarySearchTree {
   constructor() {
-    // root of a binary seach tree 
+    // root of a binary seach tree
     this.root = null;
   }
 
 
-  insert(data) {
-    // Creating a node and initailising  
-    // with data  
-    var newNode = new Node(data);
+  add(data, left = null, right = null) {
+    //creating a Node
+    //data we pass will act as individual parent Node
+    //left and right are subtrees
+    let Node = {
+      data,
+      left,
+      right,
+    };
+    //suppose currentNumberNode as a parent node
+    //current Num Node value decides position of next value
+    //if it goes to left subtree or right subtree
+    let currentNumberNode;
 
-    // root is null then node will 
-    // be added to the tree and made root. 
-    if (this.root === null)
-      this.root = newNode;
-    else
-
-      // find the correct position in the  
-      // tree and add the node 
-      this.insertNode(this.root, newNode);
-  }
-
-  // Method to insert a node in a tree 
-  // it moves over the tree to find the location 
-  // to insert a node with a given data  
-  insertNode(node, newNode) {
-    // if the data is less than the node 
-    // data move left of the tree  
-    if (newNode.data < node.data) {
-      // if left is null insert node here 
-      if (node.left === null)
-        node.left = newNode;
-      else
-
-        // if left is not null recurr until  
-        // null is found 
-        this.insertNode(node.left, newNode);
-    }
-
-    // if the data is more than the node 
-    // data move right of the tree  
-    else {
-      // if right is null insert node here 
-      if (node.right === null)
-        node.right = newNode;
-      else
-
-        // if right is not null recurr until  
-        // null is found 
-        this.insertNode(node.right, newNode);
+    if (!this.root) {
+      //if its not a root make it one by passing a Node
+      this.root = Node;
+    } else {
+      //and if its a root now, assign it to currentNumberNode
+      currentNumberNode = this.root;
+      while (currentNumberNode) {
+        //if data is smaller than cuurent data, send it in left subtree
+        if (data < currentNumberNode.data) {
+          //if current num node don't have Node properties
+          //we will assign it node properties
+          if (!currentNumberNode.left) {
+            currentNumberNode.left = Node;
+            break;
+          } else {
+            //if it has node properties and it is sent by root to left
+            //we will make it a left node because it is smaller than root node
+            currentNumberNode = currentNumberNode.left;
+          }
+          //if data is larger than cuurent data, send it in right subtree
+        } else if (data > currentNumberNode.data) {
+          //if current num node don't have Node properties
+          //we will assign it node properties
+          if (!currentNumberNode.right) {
+            currentNumberNode.right = Node;
+            break;
+          } else {
+            //if it has node properties and it is sent by root to right
+            //we will make it a right node because it is larger than root node
+            currentNumberNode = currentNumberNode.right;
+          }
+        } else {
+          console.log('Try Different Value');
+          break;
+        }
+      }
     }
   }
 
   contain(value) {
     let found = false,
-      current = this._root
+      current = this.root;
 
     //make sure there's a node to search
     while (!found && current) {
@@ -135,5 +141,16 @@ class BinarySearchTree {
 
 }
 
+// let one =new Node(3)
+// let t = new BinarySearchTree()
+// t.add(5)
+// t.add(4)
+// t.add(6)
+// console.log('t : ', t);
+// console.log('t.contain(4) : ', t.contain(2));
 
+let node = new Node();
+console.log('node : ', node);
+let t = new BinaryTree(node);
+console.log('t : ', t.root.value);
 module.exports = { Node, BinaryTree };
