@@ -2,19 +2,35 @@
 
 # Challenge Summary
 
+Review the pseudocode below, then trace the algorithm by stepping through the process with the provided sample array. Document your explanation by creating a blog article that shows the step-by-step output after each iteration through some sort of visual.
 
-* Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
-* Create a BinaryTree class
-* Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
-* Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+Once you are done with your article, code a working, tested implementation of Insertion Sort based on the pseudocode provided.
+
+Pseudocode
+  InsertionSort(int[] arr)
+  
+    FOR i = 1 to arr.length
+    
+      int j <-- i - 1
+      int temp <-- arr[i]
+      
+      WHILE j >= 0 AND temp < arr[j]
+        arr[j + 1] <-- arr[j]
+        j <-- j - 1
+        
+      arr[j + 1] <-- temp
 
 ## Challenge Description
 
 
-* Create a BinarySearchTree class
-* Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
-* Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+* Create a function that sort an input array.
+* itreate over the array and check values to sort.
 
+
+* Big O:
+
+time o(n^2)
+space o(1)
 ## Approach & Efficiency
 it taked 2 hours 
 
