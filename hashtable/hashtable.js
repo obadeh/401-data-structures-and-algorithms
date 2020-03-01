@@ -64,24 +64,16 @@ class HashTable {
   }
 
   hash(key) {
-    // This is the actual hash function controling where the values get placed
     let hash = key.split('').reduce((prev, curr) => prev + curr.charCodeAt(0), 0) * 599 % this.size;
-
     return hash;
   }
 
   add(key, value) {
     if (!key) throw new Error('Invalid key provided');
     if (this.contains(key)) return 'Key already being used';
-
     let index = this.hash(key);
-
     if (!this.buckets[index])  { this.buckets[index] = new LinkedList(); }
-
     try{
-      // this.buckets is an array
-      // this.buckets[index] is a Linked List
-      // Must put key and value for lookup
       this.buckets[index].add([key, value]);
     } catch(err) {
       throw err;
@@ -90,23 +82,15 @@ class HashTable {
 
   get(key) {
     if (!key) throw new Error('Invalid key provided');
-
     let index = this.hash(key);
-
     if (!this.buckets[index])  { return null; }
-
-    console.log(this.buckets);
-
     return this.buckets[index].getWithKey(key);
   }
 
   contains(key) {
     if (!key) throw new Error('Invalid key provided');
-
     let index = this.hash(key);
-
     if (!this.buckets[index])  { return null; }
-
     return this.buckets[index].getWithKey(key) ? true : false;
   }
 }
