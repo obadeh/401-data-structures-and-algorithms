@@ -1,85 +1,23 @@
-'use strict';
 
-const { HashTable, LinkedList } = require('../hashtable/hashtable.js');
+let repeatedWord = require('../repeatedWord/repeatedWord.js');
 
-describe('Hash Table test', () => {
- 
-  describe('hash(key)', () => {
-    test('Should successfully hash a key to an in range value', () => {
-      // arrange
-      let expectedHash = 3;
-      let key = 'cat';
-      let hashtable = new HashTable(5);
-
-      // act
-      let result = hashtable.hash(key);
-
-      // assert
-      expect(result).toBe(expectedHash);
-    });
-
-
+describe('repeated--Word', () => {
+  test('Should only take a string', () => {
+    expect(repeatedWord(2222)).toBe('not string');
   });
 
-  describe('add(key, value)', () => {
-    test('Should add the key value pair to the hashtable', () => {
-      // arrange
-      let key = 'baz';
-      let value = 'bar';
-      let hashtable = new HashTable(5);
-
-      //act
-      hashtable.add(key, value);
-      let result = hashtable.hash(key);
-
-      //assert
-      expect(hashtable.buckets[result].head.value[1]).toBe('bar');
-    });
-
-    test('Should be able to handle a collision', () => {
-      // arrange
-      let hashtable = new HashTable(5);
-
-      // act
-      hashtable.add('key', 'value');
-      hashtable.add('yek', 'anotherValue');
-
-      let result = hashtable.hash('key');
-
-      // assert
-      expect(hashtable.buckets[result].head.value[1]).toBe('value');
-      expect(hashtable.buckets[result].head.next.value[1]).toBe('anotherValue');
-    });
+  test('Should return the first repeated word of a string', () => {
+    let str = 'Once upon a time, there was a brave princess who was brave';
+    expect(repeatedWord(str)).toBe('a');
   });
 
-  describe('get(key)', () => {
-    test('Given a key, should return the value', () => {
-      // arrange
-      let hashtable = new HashTable(5);
-
-      // act
-      hashtable.add('foo', 'bar');
-      hashtable.add('key', 'value');
-
-      // assert
-      expect(hashtable.get('foo')).toBe('bar');
-    });
-
-  
+  test('Should return the first repeated word taking into account commas and punctuation', () => {
+    let str = 'It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York';
+    expect(repeatedWord(str)).toBe('summer');
   });
 
-  describe('contains(key)', () => {
-    test('Should return true if the key exists', () => {
-      // arrange
-      let hashtable = new HashTable(5);
-
-      // act
-      hashtable.add('key', 'value');
-
-      // assert
-      expect(hashtable.contains('key')).toBeTruthy();
-    });
-
+  test('Should handle if no duplicates are found', () => {
+    let str = 'No duplicates in this string';
+    expect(repeatedWord(str)).toBe('No duplicates');
   });
 });
-
