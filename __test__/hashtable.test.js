@@ -1,9 +1,9 @@
-'use strict';
+
 
 const { HashTable, LinkedList } = require('../hashtable/hashtable.js');
 
 describe('Hash Table test', () => {
- 
+
   describe('hash(key)', () => {
     test('Should successfully hash a key to an in range value', () => {
       // arrange
@@ -65,7 +65,7 @@ describe('Hash Table test', () => {
       expect(hashtable.get('foo')).toBe('bar');
     });
 
-  
+
   });
 
   describe('contains(key)', () => {

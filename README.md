@@ -9,7 +9,10 @@ Implement a Hashtable with the following methods:
 * contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
 * hash: takes in an arbitrary key and returns an index in the collection.
 
+big O
 
+time -> O(1)
+space -> O(1)
 ## Approach & Efficiency
 it taked 2 hours 
 
