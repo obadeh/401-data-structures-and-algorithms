@@ -80,7 +80,7 @@ class HashTable {
 
 
     this.buckets[index].add([key, value]);
-    
+
   }
 
   contains(key) {
