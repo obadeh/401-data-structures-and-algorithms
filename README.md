@@ -11,4 +11,4 @@ it taked 2 hours
 
 ## Solution
 
-![whbord](./llk.jpg)
+![whbord](./dd.jpg)
