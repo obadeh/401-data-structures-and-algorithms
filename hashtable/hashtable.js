@@ -73,11 +73,9 @@ class HashTable {
     if (this.contains(key)) return 'Key already being used';
     let index = this.hash(key);
     if (!this.buckets[index])  { this.buckets[index] = new LinkedList(); }
-    try{
-      this.buckets[index].add([key, value]);
-    } catch(err) {
-      throw err;
-    }
+
+    this.buckets[index].add([key, value]);
+
   }
 
   get(key) {

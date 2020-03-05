@@ -16,4 +16,4 @@ it taked 2 hours
 
 ## Solution
 
-![whbord](./)
+![whbord](./lj.jpg)
