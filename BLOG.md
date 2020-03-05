@@ -1,60 +1,97 @@
-<!-- Trace
-Sample Array: [8,4,23,42,16,15]
+# quickSort
 
-Pass 1:
+## Pseudocode
+```
+ALGORITHM QuickSort(arr, left, right)
+    if left < right
+        // Partition the array by setting the position of the pivot value 
+        DEFINE position <-- Partition(arr, left, right)
+        // Sort the left
+        QuickSort(arr, left, position - 1)
+        // Sort the right
+        QuickSort(arr, position + 1, right)
 
-Pass 1 of mergrSort
+ALGORITHM Partition(arr, left, right)
+    // set a pivot value as a point of reference
+    DEFINE pivot <-- arr[right]
+    // create a variable to track the largest index of numbers lower than the defined pivot
+    DEFINE low <-- left - 1
+    for i <- left to right do
+        if arr[i] <= pivot
+            low++
+            Swap(arr, i, low)
 
-In the first pass through of the merggeSort, we check if the array is have more than one element, then we assign n to arr.length, mid to n/2 then we slice the array into two pieces left and right.
-mid : 3
-left [ 8, 4, 23 ]
-right [ 42, 16, 15 ] 
+     // place the value of the pivot location in the middle.
+     // all numbers smaller than the pivot are on the left, larger on the right. 
+     Swap(arr, right, low + 1)
+    // return the pivot index point
+     return low + 1
 
-Pass 2:
+ALGORITHM Swap(arr, i, low)
+    DEFINE temp;
+    temp <-- arr[i]
+    arr[i] <-- arr[low]
+    arr[low] <-- temp
+```
 
-Pass 2 of mergrSort
+### Sample Array
 
-The second pass through the left array then it will do the same slice the array into two pieces left and right.
-mid : 1
-left [ 8 ]
-right [ 4, 23 ]
+input array => [8,4,23,42,16,15]<br>
 
-Pass 3:
+### Efficency
+* Time: Omega(n log(n))
+* Space: O(log (n))
 
-Pass 3 of mergrSort
+### Trace
 
+1. pass 1:
+```
+[8, 4, 23, 42, 16, 15]
+                   pivot
+partion:
+left => [8, 4] // less than pivot
 
-mid : 1
-left [ 4 ]
-right [ 23 ]
-Pass 4:
+swap:
+left => [4, 8]
+```
 
-Pass 4 of mergrSort
+2. pass 2:
+```
+partion:
+right => [23, 42, 16] // greater than pivot
 
-mid : 1
-left [ 42 ]
-right [ 16, 15 ]
+swap:
+right => [23, 42, 16]
+```
 
-Pass 5:
+3. pass 3:
+```
+partion:
+right => [23, 42, 16] // greater than pivot
 
-Pass 5 of mergrSort
+swap:
+right => [23, 16, 42]
+```
 
-mid : 1
-left [ 16 ]
-right [ 15 ]
+4. pass 4:
+```
+partion:
+right => [23, 42, 16] // greater than pivot
 
-Pass 6:
+swap:
+right => [16, 23, 42]
+```
 
-Pass 6 of mergrSort
+5. pass 5:
+```
+left => [4, 8]
 
-On its final iteratation through the array, retur to merge function and passes left and right.
-[ 4, 8, 15, 16, 23, 42 ]
+right => [16, 23, 42]
+```
 
+6. pass 6:
+```
+result => [4, 8, 16, 23, 42]
+```
 
-Efficency
-Time: O(n^2)
-The basic operation of this algorithm is comparison. This will happen n * (n-1) number of times…concluding the algorithm to be n squared.
-Space: O(1)
-No additional space is being created. This array is being sorted in place…keeping the space at constant O(1
-
-![wb](./ch.jpg) -->
+`returned array = [4, 8, 15, 16, 23, 42]`
